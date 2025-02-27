@@ -2,29 +2,33 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Project;
+use App\Entity\ProjectGroup;
+use App\Entity\Task;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
-use App\Entity\ProjectGroup;
-use App\Entity\Project;
-use App\Entity\Task;
 
 class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        // $product = new Product();
-        // $manager->persist($product);
         $group = new ProjectGroup();
-        $group->setName('Group 1');
+        $group->setName('Группа проектов 1');
+        $group->setCreatedAt(new \DateTime());
+        $group->setUpdatedAt(new \DateTime());
         $manager->persist($group);
 
         $project = new Project();
-        $project->setName('Project 1');
+        $project->setName('Проект 1');
+        $project->setCreatedAt(new \DateTime());
+        $project->setUpdatedAt(new \DateTime());
         $manager->persist($project);
 
         $task = new Task();
-        $task->setName('Task 1');
-        $task->setDescription("Description for Task 1");
+        $task->setName('Задача 1');
+        $task->setDescription('Описание задачи 1');
+        $task->setCreatedAt(new \DateTime());
+        $task->setUpdatedAt(new \DateTime());
         $manager->persist($task);
 
         $manager->flush();
