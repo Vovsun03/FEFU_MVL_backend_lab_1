@@ -14,21 +14,15 @@ class AppFixtures extends Fixture
     {
         $group = new ProjectGroup();
         $group->setName('Группа проектов 1');
-        $group->setCreatedAt(new \DateTime());
-        $group->setUpdatedAt(new \DateTime());
         $manager->persist($group);
 
         $project = new Project();
         $project->setName('Проект 1');
-        $project->setCreatedAt(new \DateTime());
-        $project->setUpdatedAt(new \DateTime());
         $manager->persist($project);
 
         $task = new Task();
         $task->setName('Задача 1');
         $task->setDescription('Описание задачи 1');
-        $task->setCreatedAt(new \DateTime());
-        $task->setUpdatedAt(new \DateTime());
         $manager->persist($task);
 
         $manager->flush();
